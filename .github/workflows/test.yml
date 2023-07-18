@@ -1,0 +1,10 @@
+name: TEST
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: TEST
+    secrets:
+      test-secret: ${{ secrets.TEST-SECRET }}
