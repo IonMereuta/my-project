@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     secrets:
       wp_host: 'host'
-      health_safety_url: null
+      health_safety_url: ${{ secrets.TEST_SECRET }}
 
 jobs:
   test:
