@@ -6,5 +6,10 @@ on:
 jobs:
   test:
     name: TEST
-    secrets:
-      test-secret: ${{ secrets.TEST-SECRET }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - run: echo ${{ secrets.TEST-SECRET }}
