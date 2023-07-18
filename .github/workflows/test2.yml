@@ -12,4 +12,5 @@ jobs:
     name: STG
     uses: ./.github/workflows/test.yml
     secrets:
+      wp_host: 'host'
       health_safety_url: ${{ secrets.TEST_SECRET }}

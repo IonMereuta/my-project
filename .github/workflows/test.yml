@@ -12,7 +12,8 @@ on:
         required: false
         default: ${{ github.sha }}
     secrets:
-      wp_host: 'host'
+      wp_host:
+        required: true
       health_safety_url:
         required: true
 
