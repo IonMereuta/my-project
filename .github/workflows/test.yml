@@ -1,10 +1,20 @@
 name: TEST
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      mode:
+        type: string
+        required: false
+        default: 'production'
+      version:
+        type: string
+        required: false
+        default: ${{ github.sha }}
     secrets:
       wp_host: 'host'
-      health_safety_url: null
+      health_safety_url:
+        required: true
 
 jobs:
   test:
