@@ -8,10 +8,13 @@ jobs:
     name: TEST
     runs-on: ubuntu-latest
 
-    env:
-      TEST: ${{ secrets.TEST_SECRET }}
-      TEST_NOT: ${{ secrets.TEST_SECRET_1 }}
+    secrets:
+      wp_host: 'host'
+      health_safety_url: ${{ secrets.TEST_SECRET_1 }}
 
-    run: echo ${{ env.TEST }}
+    env:
+      TT: ${{ secrets.health_safety_url == null && '${{ secrets.wp_host }}/health-guidance-training-information' || '${{ secrets.wp_host }}/${{ secrets.health_safety_url }}' }}
+
+    run: echo ${{ env.TT }}
 
 
