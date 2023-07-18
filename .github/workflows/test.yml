@@ -12,7 +12,6 @@ jobs:
       TEST: ${{ secrets.TEST_SECRET }}
       TEST_NOT: ${{ secrets.TEST_SECRET_1 }}
 
-    if: ${{ env.TEST == 'SECRET' }}
     run: echo ${{ env.TEST }}
 
 
