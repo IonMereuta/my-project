@@ -12,4 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - run: echo ${{ secrets.TEST-SECRET }}
+      - run: echo ${{ secrets.TEST_SECRET }}
