@@ -8,8 +8,11 @@ jobs:
     name: TEST
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    env:
+      TEST: ${{ secrets.TEST_SECRET }}
+      TEST_NOT: ${{ secrets.TEST_SECRET_1 }}
 
-      - run: echo ${{ secrets.TEST_SECRET }} == "SECRET"
+    if: env.TEST == 'SECRET'
+    run: echo ${{ env.TEST }}
+
+
