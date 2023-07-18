@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     secrets:
       wp_host: 'host'
-      health_safety_url: ${{ secrets.TEST_SECRET }}
+      health_safety_url: null
 
 jobs:
   test:
@@ -17,7 +17,7 @@ jobs:
 
       - name: Build web
         env:
-          TT: ${{ secrets.health_safety_url == null && '${{ secrets.wp_host }}/health-guidance-training-information' || '${{ secrets.wp_host }}/${{ secrets.health_safety_url }}' }}
+          TT: ${{ secrets.health_safety_url == null && format('{0}/health-guidance-training-information', secrets.wp_host) || format('{0}/{1}', secrets.wp_host, secrets.health_safety_url) }}
         run: echo ${{ env.TT }}
 
 
