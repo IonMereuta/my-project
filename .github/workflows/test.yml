@@ -15,7 +15,7 @@ on:
       wp_host:
         required: true
       health_safety_url:
-        required: true
+        required: false
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build web
         env:
-          TT: ${{ secrets.health_safety_url == null && 'TEST' || 'NOTTEST' }}
+          TT: ${{ secrets.health_safety_url == null && secrets.health_safety_url || 'nope' }}
           TT2: ${{ env.TT }}
         run: echo ${{ env.TT2 }}
 
