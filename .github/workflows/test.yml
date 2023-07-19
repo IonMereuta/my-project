@@ -15,7 +15,7 @@ on:
       wp_host:
         required: true
       health_safety_url:
-        required: false
+        required: true
 
 jobs:
   test:
