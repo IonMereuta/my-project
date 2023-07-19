@@ -13,4 +13,4 @@ jobs:
     uses: ./.github/workflows/test.yml
     secrets:
       wp_host: 'host'
-      health_safety_url: ${{ secrets.TEST_SECRET_2 }}
+      health_safety_url: ${{ secrets.TEST_SECRET }}
