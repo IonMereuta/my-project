@@ -28,7 +28,7 @@ jobs:
 
       - name: Build web
         env:
-          TT: ${{ secrets.health_safety_url == null && format('{0}/health-guidance-training-information', secrets.wp_host) || format('{0}/{1}', secrets.wp_host, secrets.health_safety_url) }}
+          TT: ${{ secrets.health_safety_url == null && 'TEST' || 'NOTTEST' }}
           TT2: ${{ env.TT }}
         run: echo ${{ env.TT2 }}
 
